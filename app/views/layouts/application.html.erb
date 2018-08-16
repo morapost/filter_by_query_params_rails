@@ -32,15 +32,33 @@
 
 		            <button type="button" id="sidebarCollapse" class="btn btn-info">
 		                <i class="fas fa-align-left"></i>
-		                <span>Toggle Sidebar</span>
+		                <span>Toggle Filters</span>
 		            </button>
 
 		        </div>
     		</nav>
 	    	<%= yield %>
-	    </div>
+	    </div>  
+	</div>    
+  <div class="overlay"></div>   
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
 
-	</div>       
-    
+            $('#dismiss, .overlay').on('click', function () {
+                $('#sidebar').removeClass('active');
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').addClass('active');
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+    </script>
   </body>
 </html>

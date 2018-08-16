@@ -1,8 +1,13 @@
+
+<div id="dismiss">
+    <i class="fas fa-arrow-left"></i>
+</div>
+
 <div class="sidebar-header">
    <h3><%= link_to "Products-All", root_path %></h3>
 </div>
 
-<ul class="list-unstyled components">
+<ul class="list-unstyled CTAs">
    <p>Filters By</p>
     <li class="active">
         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Categories</a>
@@ -54,22 +59,4 @@
 </ul>
 
 
-<script type="text/javascript">
-    $(document).ready(function () {
 
-    $("#sidebar").mCustomScrollbar({
-         theme: "minimal"
-    });
-
-    $('#sidebarCollapse').on('click', function () {
-        // open or close navbar
-        $('#sidebar').toggleClass('active');
-        // close dropdowns
-        $('.collapse.in').toggleClass('in');
-        // and also adjust aria-expanded attributes we use for the open/closed arrows
-        // in our CSS
-        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-    });
-    var slider = new Slider('#ex2', {});
-});
-</script>
