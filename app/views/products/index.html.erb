@@ -1,0 +1,30 @@
+<% if params[:filter_type] && params[:filter_value] %>
+	<h2>Listing all <%= params[:filter_type] %> containing <%= params[:filter_value] %> </h2>
+	<% else %>
+	<h2>Listing all Products</h2>
+<% end %>
+
+<div class="row">
+	<% @products.each do |product| %>
+
+	  <div class="col-md-4">
+	    <div class="card" style="width: 18rem;">
+	      <div class="card-body">
+	        <h5 class="card-title"><%= product.name %></h5>
+	        <p class="card-text">Category: <%= product.category %></p>
+	        
+	      </div>
+	      <ul class="list-group list-group-flush">
+		    <li class="list-group-item">Color: <%= product.color %></li>
+		    <li class="list-group-item">Brand: <%= product.brand %></li>
+		    <li class="list-group-item">Price: <%= product.price %></li>
+		    <li class="list-group-item">Discount: <%= product.discount %></li>
+		    <li class="list-group-item">Available: <%= product.availability %></li>
+		    <li class="list-group-item">Size: <%= product.size %></li>
+	  	  </ul>
+	    </div>
+	     <br>
+	   </div>
+
+	<% end %>    
+</div>

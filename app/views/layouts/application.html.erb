@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FilerSearch</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+  </head>
+
+  <body>
+  	<div class="wrapper">
+
+    	<!-- Sidebar -->
+	    <nav id="sidebar">
+	        <%= render 'layouts/sidebar-nav'%>
+	    </nav>
+
+    	<!-- Page Content -->
+	    <div id="content">
+	    	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		        <div class="container-fluid">
+
+		            <button type="button" id="sidebarCollapse" class="btn btn-info">
+		                <i class="fas fa-align-left"></i>
+		                <span>Toggle Sidebar</span>
+		            </button>
+
+		        </div>
+    		</nav>
+	    	<%= yield %>
+	    </div>
+
+	</div>       
+    
+  </body>
+</html>

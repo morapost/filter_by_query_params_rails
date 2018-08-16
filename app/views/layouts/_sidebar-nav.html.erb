@@ -1,0 +1,75 @@
+<div class="sidebar-header">
+   <h3><%= link_to "Products-All", root_path %></h3>
+</div>
+
+<ul class="list-unstyled components">
+   <p>Filters By</p>
+    <li class="active">
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Categories</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <% @product_categories.each do |category|%>
+                <li>
+                    <%= link_to "#{category}", products_path(filter_value: category,filter_type: 'category') %>
+                </li>
+                <% end %>
+            </ul>
+    </li>
+    <li>
+        <a href="#brandSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Brand</a>
+            <ul class="collapse list-unstyled" id="brandSubmenu">
+                <% @product_brands.each do |brand|%>
+                <li>
+                    <%= link_to "#{brand}", products_path(filter_value: brand,filter_type: 'brand') %>
+                </li>
+                <% end %>
+            </ul>
+    </li>
+    <li>
+        <a href="#priceSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Price</a>
+        <ul class="collapse list-unstyled" id="priceSubmenu">
+            <li>
+                Filter by price interval: <b>€ 10</b> <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/> <b>€ 1000</b>
+            </li>
+            <li>
+                <%= link_to "Under 499",products_path(filter_type: "price_lt_499") %>
+            </li>
+            <li>
+                <%= link_to "Between 0 to 1200",products_path(filter_type: "price_upto_1200") %>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <%= link_to "Availability",products_path(filter_type: "available") %>
+    </li>
+    <li>
+        <a href="#sizeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Size</a>
+            <ul class="collapse list-unstyled" id="sizeSubmenu">
+                <% @products_size.each do |size|%>
+                <li>
+                    <%= link_to "#{size}", products_path(filter_value: size,filter_type: 'size') %>
+                </li>
+                <% end %>
+            </ul>
+    </li>
+</ul>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    $("#sidebar").mCustomScrollbar({
+         theme: "minimal"
+    });
+
+    $('#sidebarCollapse').on('click', function () {
+        // open or close navbar
+        $('#sidebar').toggleClass('active');
+        // close dropdowns
+        $('.collapse.in').toggleClass('in');
+        // and also adjust aria-expanded attributes we use for the open/closed arrows
+        // in our CSS
+        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+    });
+    var slider = new Slider('#ex2', {});
+});
+</script>
