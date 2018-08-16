@@ -1,14 +1,20 @@
 <% if params[:filter_type] && params[:filter_value] %>
-	<h2>Listing all <%= params[:filter_type] %> containing <%= params[:filter_value] %> </h2>
+		<h2>Listing all Products with filter type: <u><%= params[:filter_type] %></u> and value: <u><%= params[:filter_value] %></u>  (<%= @products.count%>)</h2><p>Total worth: <%= @total_worth %>
+	<% elsif params[:filter_type] == "price_lt_499" %>
+		<h2>Listing all Products under price - 499 (<%= @products.count%>)</h2><p>Total worth: <%= @total_worth %></p>
+	<% elsif params[:filter_type] == "price_upto_1200" %><
+		<h2>Listing all Products between price 0 to 1200 (<%= @products.count%>)</h2><p>Total worth: <%= @total_worth %>
+	<% elsif params[:filter_type] == "available" %>	
+		<h2>Listing all Products which are avilable in stock (<%= @products.count%>)</h2><p>Total worth: <%= @total_worth %>
 	<% else %>
-	<h2>Listing all Products</h2>
+		<h2>Listing all Products</h2><p>Total worth: <%= @total_worth %>
 <% end %>
 
 <div class="row">
 	<% @products.each do |product| %>
 
 	  <div class="col-md-4">
-	    <div class="card" style="width: 18rem;">
+	    <div class="card border-success" style="width: 18rem;">
 	      <div class="card-body">
 	        <h5 class="card-title"><%= product.name %></h5>
 	        <p class="card-text">Category: <%= product.category %></p>

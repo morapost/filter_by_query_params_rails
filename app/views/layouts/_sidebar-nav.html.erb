@@ -44,9 +44,6 @@
         </ul>
     </li>
     <li>
-        <%= link_to "Availability",products_path(filter_type: "available") %>
-    </li>
-    <li>
         <a href="#sizeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Size</a>
             <ul class="collapse list-unstyled" id="sizeSubmenu">
                 <% @products_size.each do |size|%>
@@ -56,6 +53,10 @@
                 <% end %>
             </ul>
     </li>
+    <li>
+        <%= link_to "Availability",products_path(filter_type: "available") %>
+    </li>
+    
 </ul>
 
 

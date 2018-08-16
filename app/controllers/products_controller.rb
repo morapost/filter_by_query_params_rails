@@ -8,16 +8,25 @@ class ProductsController < ApplicationController
 
   	if params[:filter_type] == "price_lt_499"
   		@products = Product.where("price < ?",499 )
+  		@total_worth = @products.total_worth
   	elsif params[:filter_type] == "price_upto_1200"
   		@products = Product.where("price between ? AND ?",0,1200)
+  		@total_worth = @products.total_worth
   	elsif params[:filter_type] == "available"
   		@products = Product.where("availability = ?", true)
+  		@total_worth = @products.total_worth
   	elsif params[:filter_type] && params[:filter_value]
   		@products = Product.where(params[:filter_type] => params[:filter_value])
+  		@total_worth = @products.total_worth
   	else
   		@products = Product.all.order(name: :desc).limit(10)
+  		@total_worth = Product.total_worth
   	end
+
+
   end
+
+
 
   def show
   end
