@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app will display list of Products based on selection criteria.
 
-Things you may want to cover:
+Ruby Version - 2.4 and Rails - 5.0.7
 
-* Ruby version
+Description: Products which has attributes like Name,color,size,availability,Brand,Catergory etc
 
-* System dependencies
+* Left side Navbar using Bootstrap
 
-* Configuration
+* Designed Routes to accept query params
 
-* Database creation
+* Controller with multiple filter criteria
 
-* Database initialization
+* Used Faker Gem to seed DB
 
-* How to run the test suite
+* Database initialization - Fork the repo and run rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
+* Then seed using rails db:seed
 
-* Deployment instructions
-
-* ...
+* run the server - rails s
